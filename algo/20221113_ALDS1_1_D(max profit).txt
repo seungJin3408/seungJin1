@@ -1,0 +1,41 @@
+Random randomObj = new Random();
+
+            List<int> list = new List<int>();
+
+            int randomValue;
+
+            for (int i = 0; i < 10; i++)
+            {
+                randomValue = randomObj.Next(20);
+
+                if (!list.Contains(randomValue))
+                    list.Add(randomValue);
+            }
+
+            
+            //int a = x.Max();
+
+            //Console.WriteLine(a);
+
+            int? minVal = null;
+            int? maxVal = null;
+            int minIndex, maxIndex = 0;
+            
+            for (int i=0; i <list.Count; i++)
+            {
+                Console.WriteLine(list[i]);
+                int thisNum = list[i];
+                if(!minVal.HasValue || thisNum > minVal.Value)
+                {
+                    minVal = thisNum;
+                    
+                }
+                if (!maxVal.HasValue || thisNum < maxVal.Value)
+                {
+                    maxVal = thisNum;
+                    
+                }
+
+            }
+            
+            Console.WriteLine("최대 이익은 {0}", minVal - maxVal);
